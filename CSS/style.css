@@ -1,0 +1,18 @@
+body {
+    margin: 0;
+}
+
+.opening {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.letter{
+    width:450px;
+    padding:40px;
+    background:white;
+    border-radius:15px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.2);
+}
