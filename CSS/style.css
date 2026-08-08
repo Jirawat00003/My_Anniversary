@@ -1,18 +1,331 @@
+/* =========================
+   Body
+========================= */
+
 body {
     margin: 0;
+    font-family: Arial, sans-serif;
+    overflow-x: hidden;
 }
 
+
+/* =========================
+   Opening
+========================= */
+
 .opening {
+    position: relative;
+
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+
+    min-height: 100vh;
+
+    background: linear-gradient(
+        to bottom,
+        #050816,
+        #101b3d,
+        #24345c
+    );
 }
 
-.letter{
-    width:450px;
-    padding:40px;
-    background:white;
-    border-radius:15px;
-    box-shadow:0 10px 30px rgba(0,0,0,0.2);
+
+/* =========================
+   Stars
+========================= */
+
+.stars {
+    position: absolute;
+
+    width: 100%;
+    height: 100%;
+
+    pointer-events: none;
+}
+
+.stars span {
+    position: absolute;
+
+    color: white;
+    font-size: 14px;
+
+    animation: twinkle 2s infinite alternate;
+}
+
+.stars span:nth-child(1) {
+    top: 10%;
+    left: 15%;
+}
+
+.stars span:nth-child(2) {
+    top: 20%;
+    left: 75%;
+    animation-delay: 0.5s;
+}
+
+.stars span:nth-child(3) {
+    top: 35%;
+    left: 25%;
+    animation-delay: 1s;
+}
+
+.stars span:nth-child(4) {
+    top: 15%;
+    left: 45%;
+    animation-delay: 1.5s;
+}
+
+.stars span:nth-child(5) {
+    top: 70%;
+    left: 10%;
+}
+
+.stars span:nth-child(6) {
+    top: 80%;
+    left: 80%;
+}
+
+.stars span:nth-child(7) {
+    top: 65%;
+    left: 65%;
+}
+
+.stars span:nth-child(8) {
+    top: 45%;
+    left: 90%;
+}
+
+
+/* =========================
+   Star Animation
+========================= */
+
+@keyframes twinkle {
+
+    from {
+        opacity: 0.3;
+    }
+
+    to {
+        opacity: 1;
+    }
+
+}
+
+
+/* =========================
+   Letter
+========================= */
+
+.letter {
+    position: relative;
+}
+
+
+/* =========================
+   Envelope
+========================= */
+
+.envelope {
+    position: relative;
+
+    width: 450px;
+    height: 350px;
+
+    background: white;
+
+    border: 2px solid #f3b6c8;
+    border-radius: 20px;
+
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+
+    overflow: hidden;
+}
+
+
+/* =========================
+   Envelope Flap
+========================= */
+
+.envelope-flap {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 105px;
+
+    background: #ffe1ea;
+
+    clip-path: polygon(
+        0 0,
+        50% 100%,
+        100% 0
+    );
+
+    z-index: 3;
+}
+
+
+/* =========================
+   Mini Heart
+========================= */
+
+.mini-heart {
+    position: absolute;
+
+    top: 80px;
+    left: 50%;
+
+    width: 30px;
+    height: 30px;
+
+    background: #ff6b9a;
+
+    transform: translateX(-50%) rotate(-45deg);
+
+    z-index: 4;
+}
+
+.mini-heart::before,
+.mini-heart::after {
+    content: "";
+
+    position: absolute;
+
+    width: 30px;
+    height: 30px;
+
+    background: #ff6b9a;
+
+    border-radius: 50%;
+}
+
+.mini-heart::before {
+    top: -15px;
+    left: 0;
+}
+
+.mini-heart::after {
+    top: 0;
+    left: 15px;
+}
+
+
+/* =========================
+   Envelope Content
+========================= */
+
+.envelope-content {
+    position: relative;
+
+    z-index: 2;
+
+    padding: 125px 40px 25px;
+
+    text-align: center;
+}
+
+.envelope-content h1 {
+    font-size: 28px;
+
+    margin: 8px 0 12px;
+}
+
+.envelope-content p {
+    margin: 10px 0;
+}
+
+
+/* =========================
+   Button
+========================= */
+
+button {
+    margin-top: 12px;
+
+    padding: 13px 40px;
+
+    border: none;
+    border-radius: 50px;
+
+    background: #ff6b9a;
+    color: white;
+
+    font-size: 15px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    box-shadow: 0 8px 20px rgba(255, 107, 154, 0.35);
+
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: translateY(-3px);
+
+    box-shadow: 0 12px 25px rgba(255, 107, 154, 0.5);
+}
+
+
+/* =========================
+   Mobile Responsive
+========================= */
+
+@media (max-width: 600px) {
+
+    .envelope {
+        width: 85vw;
+        height: 330px;
+    }
+
+    .envelope-flap {
+        height: 95px;
+    }
+
+    .mini-heart {
+        top: 72px;
+
+        width: 26px;
+        height: 26px;
+    }
+
+    .mini-heart::before,
+    .mini-heart::after {
+        width: 26px;
+        height: 26px;
+    }
+
+    .mini-heart::before {
+        top: -13px;
+    }
+
+    .mini-heart::after {
+        left: 13px;
+    }
+
+    .envelope-content {
+        padding: 115px 20px 20px;
+    }
+
+    .envelope-content h1 {
+        font-size: 24px;
+        margin: 8px 0 10px;
+    }
+
+    .envelope-content p {
+        font-size: 14px;
+        margin: 7px 0;
+    }
+
+    button {
+        margin-top: 10px;
+
+        padding: 12px 30px;
+
+        font-size: 14px;
+    }
 }
