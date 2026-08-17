@@ -2,29 +2,106 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
     <title>Happy Anniversary</title>
 
-    <link rel="stylesheet" href="css/style.css">
+    <link
+        rel="stylesheet"
+        href="CSS/style.css"
+    >
+
 </head>
+
 
 <body>
 
-    <section class="opening">
 
-        <div class="stars">
-            <span>✦</span>
-            <span>✧</span>
-            <span>✦</span>
-            <span>✧</span>
-            <span>✦</span>
-            <span>✧</span>
-            <span>✦</span>
-            <span>✧</span>
+    <!-- =================================
+         WELCOME SCREEN
+    ================================== -->
+
+    <div
+        id="welcomeScreen"
+        class="welcome-screen"
+    >
+
+        <div class="welcome-content">
+
+            <div class="welcome-heart">
+                ❤️
+            </div>
+
+
+            <h1>
+                For You
+            </h1>
+
+
+            <p>
+                I made something special for you.
+            </p>
+
+
+            <div class="tap-text">
+
+                Tap anywhere to begin
+
+            </div>
+
+
+            <div class="tap-heart">
+                ♡
+            </div>
+
         </div>
 
-        <div class="letter">
+    </div>
+
+
+
+    <!-- =================================
+         MAIN WEBSITE
+    ================================== -->
+
+    <section class="opening">
+
+
+        <!-- =================================
+             BACKGROUND STARS
+        ================================== -->
+
+        <div class="stars">
+
+            <span>✦</span>
+            <span>✧</span>
+            <span>✦</span>
+            <span>✧</span>
+            <span>✦</span>
+            <span>✧</span>
+            <span>✦</span>
+            <span>✧</span>
+
+        </div>
+
+
+
+        <!-- =================================
+             MAIN CONTAINER
+        ================================== -->
+
+        <div class="card-container">
+
+
+            <!-- =================================
+                 ENVELOPE
+            ================================== -->
 
             <div class="envelope">
 
@@ -32,30 +109,301 @@
 
                 <div class="mini-heart"></div>
 
+
                 <div class="envelope-content">
 
-                    <h1>Happy Anniversary</h1>
+                    <h1>
+                        Happy Anniversary
+                    </h1>
 
-                    <p>Every story has a beginning.</p>
 
                     <p>
-                        Ours started on <br>
-                        <strong>21 July 2026</strong>
+                        Every story has a beginning.
                     </p>
 
+
+                    <p>
+
+                        Ours started on
+
+                        <br>
+
+                        <strong>
+                            21 July 2026
+                        </strong>
+
+                    </p>
+
+
                     <button id="openBtn">
+
                         OPEN LETTER
+
                     </button>
 
                 </div>
 
             </div>
 
+
+
+            <!-- =================================
+                 LETTER
+            ================================== -->
+
+            <div class="letter-view">
+
+                <div class="paper">
+
+
+                    <div class="paper-top-line"></div>
+
+
+                    <div class="paper-heart">
+                        ♥
+                    </div>
+
+
+                    <p class="letter-date">
+
+                        21 August 2026
+
+                    </p>
+
+
+                    <h1>
+
+                        ถึง คุณปภาวรินท์
+
+                    </h1>
+
+
+                    <div class="letter-text">
+
+                        <p>
+
+                            ครั้งแรกเลยที่เคยทำอะไรแบบนี้ ไม่รู้ว่ามันจะโอเคหรือเธอจะชอบไหม แต่ก็ตั้งใจสุดๆเลยละ
+
+                        </p>
+
+
+                        <p>
+
+                            ขอบคุณมากๆเลยนะครับ ที่เข้ามาในชีวิตเค้า เธอทำให้มันดีขึ้นมากๆ อยากขอบคุณในทุกๆวันเลย
+
+                        </p>
+
+
+                        <p>
+
+                            ถ้ามีอะไรที่ไม่พอใจไม่โอเคเราคุยกันนะ เค้าอยากมีเธออยู่ด้วยกันแบบนี้ไปในทุกวันหลังจากนี้
+
+                        </p>
+
+
+                        <p>
+
+                            เค้ารักเธอนะครับ
+
+                        </p>
+
+
+                        <p>
+
+                            สุขสันต์วันครบรอบนะ ❤️
+
+                        </p>
+
+                    </div>
+
+
+                    <p class="letter-sign">
+
+                      
+
+                        <br>
+
+                        <strong>
+                            จิระวัฒน์
+                        </strong>
+
+                    </p>
+
+
+                    <button
+                        id="continueBtn"
+                        class="continue-button"
+                    >
+
+                        CONTINUE
+
+                    </button>
+
+
+                    <button
+                        id="backToEnvelope"
+                        class="back-button"
+                    >
+
+                        BACK
+
+                    </button>
+
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================
+                 QUESTION PAGE
+            ================================== -->
+
+            <div class="question-view">
+
+
+                <div class="question-card">
+
+
+                    <div class="question-heart">
+                        ♥
+                    </div>
+
+
+                    <h1>
+
+                        Do you want
+                        <br>
+                        to continue with me?
+
+                    </h1>
+
+
+                    <p>
+
+                        อยากไปต่อด้วยกันไหม?
+
+                    </p>
+
+
+                    <div class="question-buttons">
+
+
+                        <button
+                            id="yesBtn"
+                            class="yes-button"
+                        >
+
+                            YES ❤️
+
+                        </button>
+
+
+                        <button
+                            id="noBtn"
+                            class="no-button"
+                        >
+
+                            NO
+
+                        </button>
+
+
+                    </div>
+
+
+                    <button
+                        id="backToLetter"
+                        class="back-question"
+                    >
+
+                        BACK
+
+                    </button>
+
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================
+                 FINAL
+            ================================== -->
+
+            <div class="final-view">
+
+
+                <div class="final-content">
+
+
+                    <div class="final-heart">
+
+                        ❤️
+
+                    </div>
+
+
+                    <h1>
+
+                        I Love You
+
+                    </h1>
+
+
+                    <p>
+
+                        And I want to continue
+                        our story with you.
+
+                    </p>
+
+
+                    <div class="final-decoration">
+
+                        ✦ ♡ ✦
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
         </div>
 
     </section>
 
+
+
+    <!-- =================================
+         BACKGROUND MUSIC
+    ================================== -->
+
+    <audio
+        id="bgMusic"
+        loop
+        preload="auto"
+    >
+
+        <source
+            src="music/นับหนึ่ง Piano.mp3"
+            type="audio/mpeg"
+        >
+
+    </audio>
+
+
+
+    <!-- =================================
+         JAVASCRIPT
+    ================================== -->
+
     <script src="JS/script.js"></script>
+
 
 </body>
 

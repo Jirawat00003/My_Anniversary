@@ -1,62 +1,342 @@
-/* =========================
-   Body
-========================= */
+/* ========================================
+   RESET
+======================================== */
+
+* {
+
+    box-sizing: border-box;
+
+}
+
+
+/* ========================================
+   BODY
+======================================== */
 
 body {
+
     margin: 0;
-    font-family: Arial, sans-serif;
-    overflow-x: hidden;
+
+    font-family:
+        Arial,
+        sans-serif;
+
+    overflow: hidden;
+
 }
 
 
-/* =========================
-   Opening
-========================= */
+/* ========================================
+   WELCOME SCREEN
+======================================== */
 
-.opening {
-    position: relative;
+.welcome-screen {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 9999;
 
     display: flex;
+
     justify-content: center;
+
     align-items: center;
 
-    min-height: 100vh;
+    background:
+        linear-gradient(
+            to bottom,
+            #050816,
+            #101b3d,
+            #24345c
+        );
 
-    background: linear-gradient(
-        to bottom,
-        #050816,
-        #101b3d,
-        #24345c
-    );
+    cursor: pointer;
+
+    transition:
+        opacity 0.9s ease,
+        visibility 0.9s ease;
+
 }
 
 
-/* =========================
-   Stars
-========================= */
+/* ========================================
+   HIDE WELCOME SCREEN
+======================================== */
 
-.stars {
-    position: absolute;
+.welcome-screen.hide {
 
-    width: 100%;
-    height: 100%;
+    opacity: 0;
+
+    visibility: hidden;
 
     pointer-events: none;
+
 }
 
+
+/* ========================================
+   WELCOME CONTENT
+======================================== */
+
+.welcome-content {
+
+    text-align: center;
+
+    color: white;
+
+    padding:
+        30px;
+
+    animation:
+        welcomeFloat 3s ease-in-out infinite;
+
+}
+
+
+.welcome-heart {
+
+    font-size: 70px;
+
+    margin-bottom: 15px;
+
+    animation:
+        heartbeat 1.2s infinite;
+
+}
+
+
+.welcome-content h1 {
+
+    margin:
+        0 0 15px;
+
+    font-family:
+        Georgia,
+        serif;
+
+    font-size: 48px;
+
+    font-weight: normal;
+
+    text-shadow:
+        0 0 20px
+        rgba(
+            255,
+            107,
+            154,
+            0.7
+        );
+
+}
+
+
+.welcome-content p {
+
+    margin:
+        0 0 35px;
+
+    color:
+        #f5dfe7;
+
+    font-size: 15px;
+
+    line-height: 1.6;
+
+}
+
+
+.tap-text {
+
+    font-size: 14px;
+
+    color:
+        #ffffff;
+
+    letter-spacing:
+        1px;
+
+    animation:
+        tapPulse 1.5s infinite;
+
+}
+
+
+.tap-heart {
+
+    margin-top:
+        15px;
+
+    font-size: 25px;
+
+    color:
+        #ff9cba;
+
+    animation:
+        tapPulse 1.5s infinite;
+
+}
+
+
+/* ========================================
+   WELCOME ANIMATION
+======================================== */
+
+@keyframes welcomeFloat {
+
+    0% {
+
+        transform:
+            translateY(0);
+
+    }
+
+    50% {
+
+        transform:
+            translateY(-8px);
+
+    }
+
+    100% {
+
+        transform:
+            translateY(0);
+
+    }
+
+}
+
+
+@keyframes tapPulse {
+
+    0% {
+
+        opacity:
+            0.4;
+
+    }
+
+    50% {
+
+        opacity:
+            1;
+
+    }
+
+    100% {
+
+        opacity:
+            0.4;
+
+    }
+
+}
+
+
+/* ========================================
+   OPENING
+======================================== */
+
+.opening {
+
+    position: relative;
+
+    width: 100%;
+
+    height: 100vh;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    background:
+        linear-gradient(
+            to bottom,
+            #050816,
+            #101b3d,
+            #24345c
+        );
+
+    overflow: hidden;
+
+}
+
+
+/* ========================================
+   BACKGROUND GLOW
+======================================== */
+
+.opening::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 500px;
+
+    height: 500px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(
+            255,
+            107,
+            154,
+            0.08
+        );
+
+    filter:
+        blur(90px);
+
+    pointer-events: none;
+
+}
+
+
+/* ========================================
+   STARS
+======================================== */
+
+.stars {
+
+    position: absolute;
+
+    inset: 0;
+
+    pointer-events: none;
+
+}
+
+
 .stars span {
+
     position: absolute;
 
     color: white;
+
     font-size: 14px;
 
-    animation: twinkle 2s infinite alternate;
+    opacity: 0.7;
+
+    text-shadow:
+        0 0 8px white;
+
+    animation:
+        twinkle 2s infinite alternate;
+
 }
+
 
 .stars span:nth-child(1) {
     top: 10%;
     left: 15%;
 }
+
 
 .stars span:nth-child(2) {
     top: 20%;
@@ -64,11 +344,13 @@ body {
     animation-delay: 0.5s;
 }
 
+
 .stars span:nth-child(3) {
     top: 35%;
     left: 25%;
     animation-delay: 1s;
 }
+
 
 .stars span:nth-child(4) {
     top: 15%;
@@ -76,20 +358,24 @@ body {
     animation-delay: 1.5s;
 }
 
+
 .stars span:nth-child(5) {
     top: 70%;
     left: 10%;
 }
+
 
 .stars span:nth-child(6) {
     top: 80%;
     left: 80%;
 }
 
+
 .stars span:nth-child(7) {
     top: 65%;
     left: 65%;
 }
+
 
 .stars span:nth-child(8) {
     top: 45%;
@@ -97,235 +383,1505 @@ body {
 }
 
 
-/* =========================
-   Star Animation
-========================= */
+/* ========================================
+   STAR ANIMATION
+======================================== */
 
 @keyframes twinkle {
 
     from {
-        opacity: 0.3;
+
+        opacity:
+            0.25;
+
     }
 
     to {
-        opacity: 1;
+
+        opacity:
+            1;
+
     }
 
 }
 
 
-/* =========================
-   Letter
-========================= */
+/* ========================================
+   CARD CONTAINER
+======================================== */
 
-.letter {
-    position: relative;
-}
+.card-container {
 
-
-/* =========================
-   Envelope
-========================= */
-
-.envelope {
     position: relative;
 
     width: 450px;
-    height: 350px;
 
-    background: white;
+    height: 540px;
 
-    border: 2px solid #f3b6c8;
-    border-radius: 20px;
+    z-index: 5;
 
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-
-    overflow: hidden;
 }
 
 
-/* =========================
-   Envelope Flap
-========================= */
+/* ========================================
+   GENERAL BUTTON
+======================================== */
+
+button {
+
+    border: none;
+
+    cursor: pointer;
+
+    font-family:
+        Arial,
+        sans-serif;
+
+    -webkit-tap-highlight-color:
+        transparent;
+
+}
+
+
+/* ========================================
+   ENVELOPE
+======================================== */
+
+.envelope {
+
+    position: absolute;
+
+    width: 450px;
+
+    height: 350px;
+
+    top: 50%;
+
+    left: 50%;
+
+    transform:
+        translate(
+            -50%,
+            -50%
+        );
+
+    background:
+        #ffffff;
+
+    border:
+        2px solid #f3b6c8;
+
+    border-radius:
+        20px;
+
+    box-shadow:
+        0 20px 45px
+        rgba(
+            0,
+            0,
+            0,
+            0.3
+        );
+
+    overflow:
+        hidden;
+
+    transition:
+        opacity 0.6s ease,
+        transform 0.6s ease;
+
+}
+
+
+/* ========================================
+   ENVELOPE FLAP
+======================================== */
 
 .envelope-flap {
+
     position: absolute;
 
     top: 0;
+
     left: 0;
 
     width: 100%;
+
     height: 105px;
 
-    background: #ffe1ea;
+    background:
+        #ffe1ea;
 
-    clip-path: polygon(
-        0 0,
-        50% 100%,
-        100% 0
-    );
+    clip-path:
+        polygon(
+            0 0,
+            50% 100%,
+            100% 0
+        );
 
     z-index: 3;
+
+    transform-origin:
+        top;
+
+    transition:
+        transform 0.8s ease;
+
 }
 
 
-/* =========================
-   Mini Heart
-========================= */
+.envelope.open
+.envelope-flap {
+
+    transform:
+        rotateX(180deg);
+
+}
+
+
+/* ========================================
+   MINI HEART
+======================================== */
 
 .mini-heart {
+
     position: absolute;
 
     top: 80px;
+
     left: 50%;
 
     width: 30px;
+
     height: 30px;
 
-    background: #ff6b9a;
+    background:
+        #ff6b9a;
 
-    transform: translateX(-50%) rotate(-45deg);
+    transform:
+        translateX(-50%)
+        rotate(-45deg);
 
     z-index: 4;
+
 }
+
 
 .mini-heart::before,
 .mini-heart::after {
+
     content: "";
 
     position: absolute;
 
     width: 30px;
+
     height: 30px;
 
-    background: #ff6b9a;
+    background:
+        #ff6b9a;
 
-    border-radius: 50%;
+    border-radius:
+        50%;
+
 }
+
 
 .mini-heart::before {
-    top: -15px;
-    left: 0;
+
+    top:
+        -15px;
+
+    left:
+        0;
+
 }
+
 
 .mini-heart::after {
-    top: 0;
-    left: 15px;
+
+    top:
+        0;
+
+    left:
+        15px;
+
 }
 
 
-/* =========================
-   Envelope Content
-========================= */
+.envelope.open
+.mini-heart {
+
+    opacity:
+        0;
+
+}
+
+
+/* ========================================
+   ENVELOPE CONTENT
+======================================== */
 
 .envelope-content {
+
     position: relative;
 
     z-index: 2;
 
-    padding: 125px 40px 25px;
+    width: 100%;
 
-    text-align: center;
+    padding:
+        125px
+        35px
+        20px;
+
+    text-align:
+        center;
+
 }
+
 
 .envelope-content h1 {
-    font-size: 28px;
 
-    margin: 8px 0 12px;
+    margin:
+        8px 0 15px;
+
+    font-size:
+        28px;
+
 }
+
 
 .envelope-content p {
-    margin: 10px 0;
+
+    margin:
+        10px 0;
+
+    line-height:
+        1.5;
+
 }
 
 
-/* =========================
-   Button
-========================= */
+/* ========================================
+   OPEN BUTTON
+======================================== */
 
-button {
-    margin-top: 12px;
+#openBtn {
 
-    padding: 13px 40px;
+    margin-top:
+        12px;
 
-    border: none;
-    border-radius: 50px;
+    padding:
+        14px 40px;
 
-    background: #ff6b9a;
-    color: white;
+    border-radius:
+        50px;
 
-    font-size: 15px;
-    font-weight: bold;
+    background:
+        #ff6b9a;
 
-    cursor: pointer;
+    color:
+        white;
 
-    box-shadow: 0 8px 20px rgba(255, 107, 154, 0.35);
+    font-size:
+        15px;
 
-    transition: 0.3s;
+    font-weight:
+        bold;
+
+    box-shadow:
+        0 8px 20px
+        rgba(
+            255,
+            107,
+            154,
+            0.35
+        );
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+
 }
 
-button:hover {
-    transform: translateY(-3px);
 
-    box-shadow: 0 12px 25px rgba(255, 107, 154, 0.5);
+#openBtn:hover {
+
+    transform:
+        translateY(-3px);
+
+    box-shadow:
+        0 12px 25px
+        rgba(
+            255,
+            107,
+            154,
+            0.5
+        );
+
 }
 
 
-/* =========================
-   Mobile Responsive
-========================= */
+/* ========================================
+   LETTER VIEW
+======================================== */
+
+.letter-view {
+
+    position: absolute;
+
+    inset: 0;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    opacity:
+        0;
+
+    transform:
+        scale(0.85);
+
+    pointer-events:
+        none;
+
+    transition:
+        opacity 0.7s ease,
+        transform 0.7s ease;
+
+}
+
+
+.card-container.show-letter
+.letter-view {
+
+    opacity:
+        1;
+
+    transform:
+        scale(1);
+
+    pointer-events:
+        auto;
+
+}
+
+
+.card-container.show-letter
+.envelope {
+
+    opacity:
+        0;
+
+    transform:
+        translate(
+            -50%,
+            -50%
+        )
+        scale(0.8);
+
+    pointer-events:
+        none;
+
+}
+
+
+/* ========================================
+   PAPER
+======================================== */
+
+.paper {
+
+    position: relative;
+
+    width:
+        380px;
+
+    height:
+        500px;
+
+    padding:
+        35px 45px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fffefa,
+            #fffaf2
+        );
+
+    border:
+        1px solid #e8ddd0;
+
+    border-radius:
+        3px;
+
+    box-shadow:
+        0 20px 45px
+        rgba(
+            0,
+            0,
+            0,
+            0.28
+        );
+
+    text-align:
+        center;
+
+    overflow:
+        hidden;
+
+}
+
+
+/* ========================================
+   PAPER TEXTURE
+======================================== */
+
+.paper::before {
+
+    content: "";
+
+    position:
+        absolute;
+
+    inset:
+        0;
+
+    background:
+        repeating-linear-gradient(
+            0deg,
+            transparent,
+            transparent 28px,
+            rgba(
+                180,
+                160,
+                140,
+                0.08
+            ) 29px
+        );
+
+    pointer-events:
+        none;
+
+}
+
+
+/* ========================================
+   PAPER TOP LINE
+======================================== */
+
+.paper-top-line {
+
+    position:
+        absolute;
+
+    top:
+        16px;
+
+    left:
+        35px;
+
+    right:
+        35px;
+
+    height:
+        1px;
+
+    background:
+        #e8cfd5;
+
+}
+
+
+/* ========================================
+   PAPER HEART
+======================================== */
+
+.paper-heart {
+
+    position:
+        relative;
+
+    color:
+        #ff6b9a;
+
+    font-size:
+        22px;
+
+    margin-top:
+        3px;
+
+    margin-bottom:
+        3px;
+
+}
+
+
+/* ========================================
+   LETTER DATE
+======================================== */
+
+.letter-date {
+
+    position:
+        relative;
+
+    margin:
+        0 0 10px;
+
+    color:
+        #999;
+
+    font-size:
+        11px;
+
+    letter-spacing:
+        1px;
+
+}
+
+
+/* ========================================
+   LETTER TITLE
+======================================== */
+
+.paper h1 {
+
+    position:
+        relative;
+
+    margin:
+        5px 0 20px;
+
+    color:
+        #d9577a;
+
+    font-family:
+        Georgia,
+        serif;
+
+    font-size:
+        27px;
+
+}
+
+
+/* ========================================
+   LETTER TEXT
+======================================== */
+
+.letter-text {
+
+    position:
+        relative;
+
+}
+
+
+.letter-text p {
+
+    margin:
+        13px 0;
+
+    color:
+        #4d4d4d;
+
+    font-family:
+        Georgia,
+        serif;
+
+    font-size:
+        13px;
+
+    line-height:
+        1.55;
+
+}
+
+
+/* ========================================
+   SIGNATURE
+======================================== */
+
+.letter-sign {
+
+    position:
+        relative;
+
+    margin:
+        15px 0 8px;
+
+    color:
+        #555;
+
+    font-family:
+        Georgia,
+        serif;
+
+    font-size:
+        13px;
+
+    line-height:
+        1.5;
+
+}
+
+
+/* ========================================
+   CONTINUE BUTTON
+======================================== */
+
+.continue-button {
+
+    position:
+        relative;
+
+    margin-top:
+        5px;
+
+    padding:
+        10px 24px;
+
+    border-radius:
+        50px;
+
+    background:
+        #ff6b9a;
+
+    color:
+        white;
+
+    font-size:
+        12px;
+
+    font-weight:
+        bold;
+
+    box-shadow:
+        0 7px 18px
+        rgba(
+            255,
+            107,
+            154,
+            0.3
+        );
+
+    transition:
+        transform 0.3s ease;
+
+}
+
+
+.continue-button:hover {
+
+    transform:
+        translateY(-2px);
+
+}
+
+
+/* ========================================
+   BACK BUTTON
+======================================== */
+
+.back-button {
+
+    position:
+        relative;
+
+    display:
+        block;
+
+    margin:
+        8px auto 0;
+
+    padding:
+        6px 18px;
+
+    background:
+        transparent;
+
+    color:
+        #999;
+
+    font-size:
+        11px;
+
+}
+
+
+.back-button:hover {
+
+    color:
+        #ff6b9a;
+
+}
+
+
+/* ========================================
+   QUESTION VIEW
+======================================== */
+
+.question-view {
+
+    position:
+        absolute;
+
+    inset:
+        0;
+
+    display:
+        flex;
+
+    justify-content:
+        center;
+
+    align-items:
+        center;
+
+    opacity:
+        0;
+
+    transform:
+        scale(0.85);
+
+    pointer-events:
+        none;
+
+    transition:
+        opacity 0.7s ease,
+        transform 0.7s ease;
+
+}
+
+
+.card-container.show-question
+.question-view {
+
+    opacity:
+        1;
+
+    transform:
+        scale(1);
+
+    pointer-events:
+        auto;
+
+}
+
+
+.card-container.show-question
+.letter-view {
+
+    opacity:
+        0;
+
+    pointer-events:
+        none;
+
+}
+
+
+/* ========================================
+   QUESTION CARD
+======================================== */
+
+.question-card {
+
+    position:
+        relative;
+
+    width:
+        390px;
+
+    min-height:
+        360px;
+
+    padding:
+        45px 30px;
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.96
+        );
+
+    border:
+        1px solid #f3c2d0;
+
+    border-radius:
+        25px;
+
+    box-shadow:
+        0 25px 50px
+        rgba(
+            0,
+            0,
+            0,
+            0.3
+        );
+
+    text-align:
+        center;
+
+}
+
+
+/* ========================================
+   QUESTION HEART
+======================================== */
+
+.question-heart {
+
+    color:
+        #ff6b9a;
+
+    font-size:
+        38px;
+
+    margin-bottom:
+        8px;
+
+}
+
+
+/* ========================================
+   QUESTION TITLE
+======================================== */
+
+.question-card h1 {
+
+    margin:
+        0 0 15px;
+
+    color:
+        #333;
+
+    font-family:
+        Georgia,
+        serif;
+
+    font-size:
+        25px;
+
+    line-height:
+        1.4;
+
+}
+
+
+.question-card p {
+
+    margin:
+        0 0 30px;
+
+    color:
+        #777;
+
+    font-size:
+        14px;
+
+}
+
+
+/* ========================================
+   QUESTION BUTTON AREA
+======================================== */
+
+.question-buttons {
+
+    position:
+        relative;
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    justify-content:
+        flex-start;
+
+    align-items:
+        center;
+
+    gap:
+        18px;
+
+    width:
+        100%;
+
+    height:
+        150px;
+
+}
+
+
+/* ========================================
+   YES BUTTON
+======================================== */
+
+.yes-button {
+
+    position:
+        relative;
+
+    z-index:
+        5;
+
+    padding:
+        13px 35px;
+
+    border-radius:
+        50px;
+
+    background:
+        #ff6b9a;
+
+    color:
+        white;
+
+    font-size:
+        14px;
+
+    font-weight:
+        bold;
+
+    box-shadow:
+        0 8px 20px
+        rgba(
+            255,
+            107,
+            154,
+            0.35
+        );
+
+    transition:
+        transform 0.3s ease;
+
+}
+
+
+.yes-button:hover {
+
+    transform:
+        scale(1.05);
+
+}
+
+
+/* ========================================
+   NO BUTTON
+======================================== */
+
+.no-button {
+
+    position:
+        relative;
+
+    z-index:
+        4;
+
+    padding:
+        13px 35px;
+
+    border-radius:
+        50px;
+
+    background:
+        #eeeeee;
+
+    color:
+        #777;
+
+    font-size:
+        14px;
+
+    font-weight:
+        bold;
+
+    transition:
+        left 0.25s ease,
+        top 0.25s ease;
+
+}
+
+
+/* ========================================
+   BACK QUESTION
+======================================== */
+
+.back-question {
+
+    margin-top:
+        10px;
+
+    padding:
+        6px 18px;
+
+    background:
+        transparent;
+
+    color:
+        #aaa;
+
+    font-size:
+        11px;
+
+}
+
+
+.back-question:hover {
+
+    color:
+        #ff6b9a;
+
+}
+
+
+/* ========================================
+   FINAL VIEW
+======================================== */
+
+.final-view {
+
+    position:
+        absolute;
+
+    inset:
+        0;
+
+    display:
+        flex;
+
+    justify-content:
+        center;
+
+    align-items:
+        center;
+
+    opacity:
+        0;
+
+    transform:
+        scale(0.7);
+
+    pointer-events:
+        none;
+
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s ease;
+
+}
+
+
+/* ========================================
+   SHOW FINAL
+======================================== */
+
+.card-container.show-final
+.final-view {
+
+    opacity:
+        1;
+
+    transform:
+        scale(1);
+
+    pointer-events:
+        auto;
+
+    z-index:
+        20;
+
+}
+
+
+/* ========================================
+   HIDE QUESTION
+======================================== */
+
+.card-container.show-final
+.question-view {
+
+    opacity:
+        0;
+
+    transform:
+        scale(0.85);
+
+    pointer-events:
+        none;
+
+}
+
+
+/* ========================================
+   HIDE LETTER
+======================================== */
+
+.card-container.show-final
+.letter-view {
+
+    opacity:
+        0;
+
+    transform:
+        scale(0.85);
+
+    pointer-events:
+        none;
+
+}
+
+
+/* ========================================
+   HIDE ENVELOPE
+======================================== */
+
+.card-container.show-final
+.envelope {
+
+    opacity:
+        0;
+
+    transform:
+        translate(
+            -50%,
+            -50%
+        )
+        scale(0.8);
+
+    pointer-events:
+        none;
+
+}
+
+
+/* ========================================
+   FINAL CONTENT
+======================================== */
+
+.final-content {
+
+    text-align:
+        center;
+
+    color:
+        white;
+
+}
+
+
+.final-heart {
+
+    font-size:
+        80px;
+
+    animation:
+        heartbeat 1s infinite;
+
+}
+
+
+.final-content h1 {
+
+    margin:
+        15px 0;
+
+    font-family:
+        Georgia,
+        serif;
+
+    font-size:
+        52px;
+
+    text-shadow:
+        0 0 20px
+        rgba(
+            255,
+            107,
+            154,
+            0.7
+        );
+
+}
+
+
+.final-content p {
+
+    margin:
+        0;
+
+    font-size:
+        16px;
+
+    color:
+        #f5dfe7;
+
+}
+
+
+.final-decoration {
+
+    margin-top:
+        25px;
+
+    font-size:
+        22px;
+
+    color:
+        #ff9cba;
+
+}
+
+
+/* ========================================
+   HEARTBEAT
+======================================== */
+
+@keyframes heartbeat {
+
+    0% {
+
+        transform:
+            scale(1);
+
+    }
+
+    50% {
+
+        transform:
+            scale(1.18);
+
+    }
+
+    100% {
+
+        transform:
+            scale(1);
+
+    }
+
+}
+
+
+/* ========================================
+   MOBILE
+======================================== */
 
 @media (max-width: 600px) {
 
+
+    .welcome-content {
+
+        padding:
+            25px;
+
+    }
+
+
+    .welcome-heart {
+
+        font-size:
+            60px;
+
+    }
+
+
+    .welcome-content h1 {
+
+        font-size:
+            40px;
+
+    }
+
+
+    .welcome-content p {
+
+        font-size:
+            14px;
+
+        margin-bottom:
+            30px;
+
+    }
+
+
+    .card-container {
+
+        width:
+            92vw;
+
+        height:
+            540px;
+
+    }
+
+
+    /* Envelope */
+
     .envelope {
-        width: 85vw;
-        height: 330px;
+
+        width:
+            88vw;
+
+        height:
+            330px;
+
     }
 
-    .envelope-flap {
-        height: 95px;
-    }
-
-    .mini-heart {
-        top: 72px;
-
-        width: 26px;
-        height: 26px;
-    }
-
-    .mini-heart::before,
-    .mini-heart::after {
-        width: 26px;
-        height: 26px;
-    }
-
-    .mini-heart::before {
-        top: -13px;
-    }
-
-    .mini-heart::after {
-        left: 13px;
-    }
 
     .envelope-content {
-        padding: 115px 20px 20px;
+
+        padding:
+            115px 20px 20px;
+
     }
+
 
     .envelope-content h1 {
-        font-size: 24px;
-        margin: 8px 0 10px;
+
+        font-size:
+            24px;
+
     }
+
 
     .envelope-content p {
-        font-size: 14px;
-        margin: 7px 0;
+
+        font-size:
+            14px;
+
+        margin:
+            7px 0;
+
     }
 
-    button {
-        margin-top: 10px;
 
-        padding: 12px 30px;
+    /* Paper */
 
-        font-size: 14px;
+    .paper {
+
+        width:
+            86vw;
+
+        height:
+            510px;
+
+        padding:
+            32px 25px;
+
     }
+
+
+    .paper h1 {
+
+        font-size:
+            24px;
+
+        margin-bottom:
+            18px;
+
+    }
+
+
+    .letter-text p {
+
+        font-size:
+            12px;
+
+        margin:
+            11px 0;
+
+    }
+
+
+    .letter-sign {
+
+        margin-top:
+            12px;
+
+    }
+
+
+    /* Question */
+
+    .question-card {
+
+        width:
+            86vw;
+
+        min-height:
+            360px;
+
+        padding:
+            40px 20px;
+
+    }
+
+
+    .question-card h1 {
+
+        font-size:
+            22px;
+
+    }
+
+
+    .question-buttons {
+
+        height:
+            150px;
+
+        gap:
+            18px;
+
+    }
+
+
+    .yes-button,
+    .no-button {
+
+        padding:
+            12px 28px;
+
+    }
+
+
+    /* Final */
+
+    .final-content h1 {
+
+        font-size:
+            40px;
+
+    }
+
+
+    .final-content p {
+
+        padding:
+            0 25px;
+
+        line-height:
+            1.6;
+
+    }
+
+
+    .final-heart {
+
+        font-size:
+            65px;
+
+    }
+
 }
